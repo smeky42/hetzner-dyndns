@@ -6,4 +6,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "dotenv>=0.9.9",
+    "hcloud>=2.13.0",
+    "requests>=2.32.5",
 ]
