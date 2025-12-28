@@ -31,7 +31,7 @@ def update(public_ip: str):
     for zone in zones:
         print(f"Zone: {zone.id} - {zone.name}")
         if zone.name == domain:
-            rrset = client.zones.get_rrset(zone=Zone(name=domain), name="www", type="A")
+            rrset = client.zones.get_rrset(zone=Zone(name=domain), name="@", type="A")
             print(f"ID {rrset.id}, Name {rrset.name}, Type {rrset.type}, TTL {rrset.ttl}, Records {rrset.records}")
 
             action = client.zones.set_rrset_records(
