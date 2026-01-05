@@ -1,17 +1,19 @@
 from __future__ import annotations
 import os
 import requests
-import pathlib
 import logging
 
 from os import environ
+from pathlib import Path 
 from dotenv import load_dotenv
 from hcloud import Client
 from hcloud.zones import Zone, ZoneRRSet, ZoneRecord
 
-IP_FILE = pathlib.Path("./current_public_ip.txt")  # adjust path as needed
 
-LOG_FILE = pathlib.Path("./hetzner_dyndns.log")
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+IP_FILE = SCRIPT_DIR / "current_public_ip.txt"
+LOG_FILE = SCRIPT_DIR / "hetzner_dyndns.log"
 LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
